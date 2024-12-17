@@ -1,0 +1,42 @@
+body { 
+    background-color: rgb(225, 219, 219);
+  }
+   .header{ 
+    background-color: rgb(156, 185, 192); 
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: aliceblue; 
+    text-align: center;
+  }   
+  
+  .subheadings{ 
+    background-color: rgb(225, 219, 219);
+    font-weight: bold;
+  }
+  
+  .differentpagelinks { 
+    text-align: left;
+  }
+  .samepagelinks { 
+    text-align: center; 
+  
+  }  
+  
+  a { 
+    color: bluevioletß; 
+    text-decoration: none;
+  }
+  a:hover { 
+    text-decoration: underline;
+  }  
+  
+  img { 
+    width: 200px;;
+    ;
+  } 
+  
+  h1 { 
+    text-align: center;
+  }
+  .mainbody {
+    text-align: left;
+  }

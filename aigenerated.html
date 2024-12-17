@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Generator</title>
+    <style>
+        body {
+          font-family: sans-serif;
+          background-image: url(assets/img/storygenerator.jpeg);
+          background-size: cover;
+        }
+        #story-container {
+          border: 1px solid #ccc;
+          padding: 20px;
+          margin: 20px auto;
+          max-width: 600px;
+        }
+    </style>
+</head>
+    <body>
+        <div class="menu-container">
+            <div class="dropdown">
+              <div class="dropdown-content">
+                <a href="index.html">Home</a> |
+                <a href="examples.html">Examples</a> |
+                <a href="customization.html">Customization</a> |
+                <a href="contactinfo.html">Contact</a> |
+                <a href="resume.html">My Resume</a> <br> <br>
+                <a href="aigenerated.html">Restart the story</a>
+              </div>
+            </div>
+          </div>
+        <div id="story-container">
+          <h1>Interactive Story</h1>
+          <p id="story-text">Once upon a time...</p>
+          <div id="options-container"></div>
+        </div>
+        <script>
+        const storyText = document.getElementById('story-text');
+        const optionsContainer = document.getElementById('options-container');
+        
+        let currentScene = 0;
+        
+        const story = [
+  {
+    text: "Once upon a time...",
+    options: [
+      { text: "Go to the forest", nextScene: 1 },
+      { text: "Stay at home", nextScene: 2 }
+    ]
+  },
+  {
+    text: "You entered the forest. You see a path and a river.",
+    options: [
+      { text: "Follow the path", nextScene: 3 },
+      { text: "Follow the river", nextScene: 4 }
+    ]
+  },
+  {
+    text: "You stayed home. You hear a knock at the door.",
+    options: [
+      { text: "Answer the door", nextScene: 5 },
+      { text: "Ignore it", nextScene: 6 }
+    ]
+  },
+  {
+    text: "The path leads to a clearing. There's a mysterious chest.",
+    options: [
+      { text: "Open the chest", nextScene: 7 },
+      { text: "Leave the chest alone", nextScene: 8 }
+    ]
+  },
+  {
+    text: "The river leads to a waterfall. You see a hidden cave behind it.",
+    options: [
+      { text: "Enter the cave", nextScene: 9 },
+      { text: "Turn back", nextScene: 10 }
+    ]
+  },
+  {
+    text: "You open the door. It's a friendly wizard!",
+    options: [
+      { text: "Invite him in", nextScene: 11 },
+      { text: "Politely decline", nextScene: 12 }
+    ]
+  },
+  {
+    text: "You ignore the knocking. The house becomes eerily quiet.",
+    options: [
+      { text: "Investigate the noise", nextScene: 13},
+      {text: "Hide under the bed", nextScene: 14}
+    ]
+  },
+    { text: "You open the chest. It's filled with gold!", options: [] },
+    { text: "You leave the chest alone. A bird sings a beautiful melody.", options: [] },
+    { text: "You enter the cave. It's filled with glowing crystals.", options: [] },
+    { text: "You turn back.  You feel a strange sense of regret.", options: [] },
+    { text: "You invite the wizard in for tea. He tells you fascinating stories.", options: [] },
+    { text: "You politely decline. The wizard shrugs and disappears.", options: [] },
+    {text: "You investigate the noise. It was just the wind.", options: []},
+    {text: "You hide under the bed.  You hear footsteps approaching.", options: []}
+];
+        
+        function displayScene(sceneIndex) {
+          const scene = story[sceneIndex];
+          storyText.textContent = scene.text;
+          optionsContainer.innerHTML = '';
+        
+          scene.options.forEach(option => {
+            const button = document.createElement('button');
+            button.textContent = option.text;
+            button.addEventListener('click', () => displayScene(option.nextScene));
+            optionsContainer.appendChild(button);
+          });
+        }
+        
+        displayScene(currentScene);
+        </script>
+    </body>
+</html>
